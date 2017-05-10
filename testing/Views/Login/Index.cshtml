@@ -1,0 +1,40 @@
+﻿
+@using System.Web.Optimization
+@model testing.Models.LoginModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Login View</title>
+</head>
+<body>
+    <div>
+        @{
+            try
+            {
+                string data = ViewBag["LoginResult"];
+                Html.LabelFor(x => data);
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+
+        @using (Html.BeginForm())
+        {
+            @Html.EditorForModel()
+            <input type="submit" name="Login" value="Login" />
+        }
+
+    </div>
+    @Scripts.Render("~/Scripts/jquery-3.1.1")
+    @Scripts.Render("~/Scripts/jquery.validate")
+    @Scripts.Render("~/Scripts/jquery.validate.unobtrusive")
+</body>
+</html>
